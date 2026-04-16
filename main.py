@@ -2,13 +2,29 @@ import streamlit as st
 import pandas as pd
 # import matplotlib.pyplot as plt
 
+@st.dialog("Test dialog", dismissible=False)
+def init_dialog():
+    st.write('Hello')
+    st.session_state['init dialog'] = 'Done'
+    st.write(st.session_state)
+    if st.button("Close"):
+        st.rerun()
+
+
 st.title("Hola Nati :)")
 st.write("hello world!")
 st.write({'a':2, 'b':[2, 6, 'a']})
 
 st.title('Demo')
 
+if "init dialog" not in st.session_state:
+    init_dialog()
+
 uploaded_file = st.file_uploader('Upload your file please', type=('csv', 'py'))
+
+
+
+st.button('Empty button')
 
 if uploaded_file is not None:
     st.write('File uploaded...')
