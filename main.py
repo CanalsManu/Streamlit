@@ -10,10 +10,18 @@ def init_dialog():
     if st.button("Close"):
         st.rerun()
 
+pg = st.navigation([
+    st.Page('pages/page2.py'),
+    st.Page('pages/page1.py')
+])
+pg.run()
+
+st.error('Epa')
+# st.sidebar()
+
 
 st.title("Hola Nati :)")
 st.write("hello world!")
-st.write({'a':2, 'b':[2, 6, 'a']})
 
 st.title('Demo')
 
